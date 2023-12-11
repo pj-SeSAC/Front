@@ -51,12 +51,9 @@ window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드�
                 document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");
             }
             newDIV.classList.add("choiceDay");  // 선택된 날짜에 "choiceDay" class 추가
-            console.log(newDIV)
-            //일기 데이터 가져와서 로컬 스토리지에 저장 후 
-            // $.ajax({
-
-            // })
-            window.location.href = "diary_See.html"; // 이동 후 로컬스토리지에서 일기 테이터 꺼내서 바인딩
+            var dayStr = document.getElementById("calYear").innerText+ document.getElementById("calMonth").innerText+newDIV.innerText;
+            // console.log(dayStr)
+            window.location.href = `diary_See.html?${dayStr}`; // 이동 후 로컬스토리지에서 일기 테이터 꺼내서 바인딩
         }
 
         // 이전달 버튼 클릭

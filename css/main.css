@@ -339,15 +339,21 @@ td {
 }
 
 /* 선택된 날짜에 대한 스타일 */
-.pastDay.choiceDay,
+/* .pastDay.choiceDay,
 .futureDay.choiceDay,
 .today.choiceDay {
     background: #ff8029;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
-}
+} */
 
+.choiceDay{
+    background: #ff8029;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
 .gotoWrite {
     display: inline-block;
     /* flex-shrink는 inline-block에서는 필요하지 않습니다 */

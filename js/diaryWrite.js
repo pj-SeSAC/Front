@@ -9,7 +9,8 @@ function write() {
         "user_id":1,
         "content": $(".diaryEntry").val(),   //바뀔 수 있는 부분
         "created_at":new Date(),
-        "summary":"test"
+        "summary":"test",
+        "diary_date":"20230109"
     };
    console.log($(".diaryEntry").val());
     //전송
