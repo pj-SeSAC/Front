@@ -1,4 +1,4 @@
-document.getElementById("final-save").onclick = function () {
+document.getElementById("final-save-check").onclick = function () {
     location.href = "main.html"; 
 };
 

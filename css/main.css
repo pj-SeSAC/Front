@@ -86,7 +86,7 @@
     overflow: auto;
 }
 
-.frame-a {
+.header {
     display: inline-flex;
     padding: 6px 6px 6px 6px;
     align-items: center;
@@ -100,7 +100,7 @@ a[href="main.html"] img[src="png/RAM.png"] {
     /* 오른쪽으로 10px 이동 */
 }
 
-.frame-a .empty-space {
+.header .header-space {
     margin-right: 5px;
     /* 오른쪽 여백을 5px로 조정 */
 }
@@ -114,7 +114,7 @@ a[href="main.html"] img[src="png/RAM.png"] {
 }
 
 /* 빈 공간 */
-.empty-space {
+.header-space {
     display: inline-flex;
     padding: 6px 6px 6px 6px;
     align-items: center;
@@ -123,7 +123,7 @@ a[href="main.html"] img[src="png/RAM.png"] {
     height: 52px;
 }
 
-.text-content {
+.header-content {
     display: flex;
     width: 150px;
     height: 52px;
@@ -145,7 +145,7 @@ a[href="main.html"] img[src="png/RAM.png"] {
     margin: auto;
 }
 
-.frame-b {
+.second-header {
     display: flex;
     justify-content: center;
     /* 내부 요소 수평 중앙 정렬 */
@@ -164,7 +164,7 @@ a[href="main.html"] img[src="png/RAM.png"] {
 
 }
 
-.frame-c {
+.daily-analysis {
     width: 318px;
     height: 48px;
     flex-shrink: 0;
