@@ -1,5 +1,6 @@
 window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드되면 buildCalendar 실행
 // localStorage.setItem("temp", "temp");
+console.log();
 
 
 
@@ -27,7 +28,7 @@ function buildCalendar() {
     }
 
     for (let nowDay = firstDate; nowDay <= lastDate; nowDay.setDate(nowDay.getDate() + 1)) {
-        console.log(nowDay);
+        // console.log(nowDay);
         let nowColumn = nowRow.insertCell();        // 새 열을 추가하고
 
         let newDIV = document.createElement("p");
