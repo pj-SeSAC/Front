@@ -27,7 +27,7 @@ function buildCalendar() {
     }
 
     for (let nowDay = firstDate; nowDay <= lastDate; nowDay.setDate(nowDay.getDate() + 1)) {
-        // console.log(nowDay);
+        console.log(nowDay);
         let nowColumn = nowRow.insertCell();        // 새 열을 추가하고
 
         let newDIV = document.createElement("p");
@@ -62,7 +62,7 @@ function choiceDate(newDIV) {
     if (document.getElementsByClassName("choiceDay")[0]) {
         document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");
     }
-    // newDIV.classList.add("choiceDay");  // 선택된 날짜에 "choiceDay" class 추가
+    newDIV.classList.add("choiceDay");  // 선택된 날짜에 "choiceDay" class 추가
     // var dayStr = document.getElementById("calYear").innerText+ document.getElementById("calMonth").innerText+newDIV.innerText;
     // // console.log(dayStr)
     // window.location.href = `diary_See.html?${dayStr}`; // 이동 후 로컬스토리지에서 일기 테이터 꺼내서 바인딩

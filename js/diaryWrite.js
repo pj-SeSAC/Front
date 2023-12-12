@@ -1,6 +1,17 @@
+window.onload = function(){
+    if(  localStorage.getItem('tempDiary')){
+        console.log("있음");
+        $(".diaryEntry").append(localStorage.getItem('tempDiary'));
+    }else{
+        console.log("없음");
+    }
+}
 // 작성 버튼 눌렀을 때
 $('#final-save-check').click(write);
-
+$('#temporary-save').click(saveTemp);
+function saveTemp(){
+    localStorage.setItem('tempDiary', $('.diaryEntry').val());
+}
 function write() {
     // 사용자의 입력과 현재 날짜를 변수로 받기
     let userId = 1; // 예시 사용자 ID
@@ -29,7 +40,9 @@ function write() {
         success: function (result) {
             // 성공 시 처리
             console.log(result);
+            localStorage.removeItem('tempDiary');
             appendDiaryContent(result);
+            window.location.href="main.html";
         },
         error: function (result, status, error) {
             // 오류 시 처리
@@ -65,14 +78,15 @@ function appendDiaryContent(result) {
     $('#diary-container').append(str);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    var finalSaveCheck = document.getElementById("final-save-check");
-    if (finalSaveCheck) {
-        finalSaveCheck.onclick = function () {
-            location.href = "main.html"; 
-        };
-    }
-});
+//
+// document.addEventListener('DOMContentLoaded', function() {
+//     var finalSaveCheck = document.getElementById("final-save-check");
+//     if (finalSaveCheck) {
+//         finalSaveCheck.onclick = function () {
+//             location.href = "main.html"; 
+//         };
+//     }
+// });
 
 // document.getElementById("final-save-check").onclick = function () {
 //     location.href = "main.html"; 
