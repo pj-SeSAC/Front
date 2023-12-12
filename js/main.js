@@ -1,6 +1,8 @@
 window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드되면 buildCalendar 실행
 // localStorage.setItem("temp", "temp");
 
+
+
 let nowMonth = new Date();  // 현재 달을 페이지를 로드한 날의 달로 초기화
 let today = new Date();     // 페이지를 로드한 날짜를 저장
 today.setHours(0, 0, 0, 0);    // 비교 편의를 위해 today의 시간을 초기화
@@ -25,9 +27,18 @@ function buildCalendar() {
     }
 
     for (let nowDay = firstDate; nowDay <= lastDate; nowDay.setDate(nowDay.getDate() + 1)) {
+        // console.log(nowDay);
         let nowColumn = nowRow.insertCell();        // 새 열을 추가하고
 
         let newDIV = document.createElement("p");
+        //해당 날짜에 일기가 있다면클래스 추가 -> 해당 클래스 css 먹이기
+
+        // if(arr[nowDay-1] == 1) {
+        //     //일기 있음-> newDIV 클레스 추가 (existDiary)
+        // }
+        // else{
+        //     //일기 없음
+        // }
         newDIV.innerHTML = leftPad(nowDay.getDate());        // 추가한 열에 날짜 입력
         nowColumn.appendChild(newDIV);
 

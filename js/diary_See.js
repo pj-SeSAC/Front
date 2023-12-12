@@ -24,7 +24,9 @@ function fetchDiary(date) {
         "content": content,
         "created_at": created_at,
         "summary": summary,
-        "diary_date": diaryDate
+        "diary_date": diaryDate,
+        "image_url" : null
+
     };
 
     $.ajax({
@@ -33,7 +35,6 @@ function fetchDiary(date) {
         dataType: 'json',
         contentType: 'application/json',
         success: function(result) {
-            console.log(result);
             displayDiary(result);
         },
         error: function(result, status, error) {
@@ -44,10 +45,6 @@ function fetchDiary(date) {
 
 // 받아온 일기 데이터를 표시하는 함수
 function displayDiary(diaryData) {
-    if (diaryData && diaryData.content) {
-        document.querySelector('.text-box').innerText = diaryData.content;
-    //    $(".image-container").append(diaryData.)
-    } else {
-        document.querySelector('.text-box').innerText = '일기 내용이 없습니다.';
-    }
+        document.querySelector('.text-box').innerText = diaryData.diary.content;
+       $(".image-container").append(`<img src="../png/diary_ex.jpeg" alt="Diary Entry">`);
 }
