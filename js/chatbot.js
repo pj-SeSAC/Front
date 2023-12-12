@@ -5,6 +5,9 @@ function ChatSend() {
         let chatbotSub = {
             "message": $('.ChatInput').val()
         };
+        $('.chat-container').append('<div class="message-given">' + chatbotSub.message + '</div>');
+        $('.ChatInput').val(''); 
+
         if (chatbotSub.message) {
             $.ajax({
                 type: 'POST',
@@ -15,9 +18,7 @@ function ChatSend() {
                 success: function (result) {
                     console.log(chatbotSub.message)
                     console.log(result)
-                    $('.chat-container').append('<div class="message-given">' + chatbotSub.message + '</div>');
                     $('.chat-container').append('<div class="message-received">' + result.response + '</div>');
-                    $('.ChatInput').val(''); 
                 },
                 error: function (xhr, status, error) {
                     console.error("Error: " + error);
