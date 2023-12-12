@@ -78,5 +78,10 @@ document.addEventListener('DOMContentLoaded', function() {
 //     location.href = "main.html"; 
 // };
 
+// var chatContainer = document.querySelector('.diaryEntry');
+// chatContainer.scrollTop = chatContainer.scrollHeight;
+
 var chatContainer = document.querySelector('.diaryEntry');
-chatContainer.scrollTop = chatContainer.scrollHeight;
+if (chatContainer) {
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}

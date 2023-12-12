@@ -1,4 +1,5 @@
 window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드되면 buildCalendar 실행
+// localStorage.setItem("temp", "temp");
 
 let nowMonth = new Date();  // 현재 달을 페이지를 로드한 날의 달로 초기화
 let today = new Date();     // 페이지를 로드한 날짜를 저장
@@ -57,6 +58,8 @@ function choiceDate(newDIV) {
     var dayStr = document.getElementById("calYear").innerText + "-" +
                            document.getElementById("calMonth").innerText + "-" +
                            newDIV.innerText;
+
+                           
     window.location.href = `diary_See.html?date=${dayStr}`; // 날짜를 쿼리 파라미터로 전달
     updateDateDisplay(newDIV.innerText); // 날짜 업데이트
 }
