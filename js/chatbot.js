@@ -13,6 +13,7 @@ function ChatSend() {
                 contentType: 'application/json',
                 data: JSON.stringify(chatbotSub),
                 success: function (result) {
+                    console.log(chatbotSub.message)
                     console.log(result)
                     $('.chat-container').append('<div class="message-given">' + chatbotSub.message + '</div>');
                     $('.chat-container').append('<div class="message-received">' + result.response + '</div>');
