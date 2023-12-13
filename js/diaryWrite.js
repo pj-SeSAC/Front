@@ -59,25 +59,6 @@ function formatDate(date) {
     return `${year}-${month}-${day}`;
 }
 
-// 서버의 응답에 따라 일기 내용을 페이지에 추가하는 함수
-function appendDiaryContent(result) {
-    let str = `
-        <div class="header-space">
-            <div class="header-content">
-                <span class="date">${formatDate(new Date(result.created_at))}</span>
-            </div>
-        </div>
-        <div class="image-container">
-            <img src="../png/diary_ex.jpeg" alt="Diary Entry">
-        </div>
-        <div class="text-container">
-            <div class="text-box">${result.content}</div>
-        </div>
-    `;
-    // 결과를 적절한 요소에 추가 (예: '#diary-container' 요소에 추가)
-    $('#diary-container').append(str);
-}
-
 //
 // document.addEventListener('DOMContentLoaded', function() {
 //     var finalSaveCheck = document.getElementById("final-save-check");

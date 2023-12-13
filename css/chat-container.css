@@ -1,5 +1,6 @@
 .chat-container {
-    height: calc(100vh - 84px - 58px);
+    /* height: calc(100vh - 84px - 58px); */
+    height: 550px;
     overflow-y: auto; /* 스크롤 가능하도록 설정 */
     background: #f9f9f9; /* 채팅 배경색, 카카오톡 스타일에 맞춰 조정 가능 */
     padding: 8px; /* 내부 패딩 */

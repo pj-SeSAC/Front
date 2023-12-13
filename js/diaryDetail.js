@@ -11,8 +11,11 @@ window.onload = function () {
     contentType: 'application/json',
     success: function (result) {
       console.log(result)
-      
-      $(".date").append(result.date);
+      if(!result.exsits){
+        window.location.href = `diary_write.html?${dayStr}`
+      }else{
+        $(".date").append(result.date);
+      }
     },
     error: function (result, status, error) {
       console.log(error)
