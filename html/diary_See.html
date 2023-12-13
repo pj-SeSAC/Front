@@ -27,19 +27,18 @@
         <!-- 빈 공간 -->
         <div class="header-space">
           <div class="header-content">
-            <span class="date"></span>
+            <span class="date"></span> <!--이부분에 날짜 나오게 해야함-->
           </div>
 
         </div>
       </div>
 
       <div class="image-container">
-        <img src="../png/diary_ex.jpeg" alt="Diary Entry">
+        <!-- <img src="../png/diary_ex.jpeg" alt="Diary Entry"> -->
       </div>
 
       <div class="text-container">
         <div class="text-box">
-          두근두근 하루일을 잊고, 하루하루를 보내고 있어요...
         </div>
       </div>
 
@@ -77,13 +76,22 @@
         <img src="../png/ramy_head.png" alt="래미" class="ramy-head">
         <span>래미</span>
       </a>
-  </div>
+    </div>
     <div class="docbar"><img src="../png/docbar.png" class="docbar"></div>
   </div>
 
 
 
-
+  <script src="../js/diary_See.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var params = new URLSearchParams(window.location.search);
+      var date = params.get('date'); // URL에서 'date' 파라미터 추출
+      if (date) {
+        document.querySelector('.date').innerText = date; // 날짜 표시
+      }
+    });
+  </script>
 </body>
 
 </html>
