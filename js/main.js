@@ -36,10 +36,12 @@ function buildCalendar() {
 
         // if(arr[nowDay-1] == 1) {
         //     //일기 있음-> newDIV 클레스 추가 (existDiary)
+        // newDIV.classList.add("existDiary");
         // }
         // else{
         //     //일기 없음
         // }
+        
         newDIV.innerHTML = leftPad(nowDay.getDate());        // 추가한 열에 날짜 입력
         nowColumn.appendChild(newDIV);
 
