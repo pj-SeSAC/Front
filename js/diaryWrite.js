@@ -95,6 +95,8 @@ function appendDiaryContent(result) {
 // var chatContainer = document.querySelector('.diaryEntry');
 // chatContainer.scrollTop = chatContainer.scrollHeight;
 
+
+// 아래 코드를 챗봇 스크롤이 되게끔 이식해보기
 var chatContainer = document.querySelector('.diaryEntry');
 if (chatContainer) {
     chatContainer.scrollTop = chatContainer.scrollHeight;
