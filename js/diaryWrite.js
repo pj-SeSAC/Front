@@ -8,7 +8,7 @@ window.onload = function(){
 }
 // 작성 버튼 눌렀을 때
 $('#final-save-check').click(write);
-$('#temporary-save').click(saveTemp);
+$('#temporary-save').click(saveTemp);   
 function saveTemp(){
     localStorage.setItem('tempDiary', $('.diaryEntry').val());
 }
@@ -19,7 +19,7 @@ function write() {
     let created_at = new Date(); // 현재 날짜 및 시간
     let summary = "일기 요약"; // 사용자가 입력한 일기 요약 또는 자동 생성된 요약
     let diaryDate = formatDate(created_at); // 현재 날짜를 'YYYY-MM-DD' 형식으로 변환
-
+    let image_url = image_url;
     // 일기 객체 생성
     let diary = {
         "diary_id": 12345678, // 임시 일기 ID
@@ -27,7 +27,8 @@ function write() {
         "content": content,
         "created_at": created_at,
         "summary": summary,
-        "diary_date": diaryDate
+        "diary_date": diaryDate,
+        "image_url" : image_url 
     };
 
     // 전송
@@ -59,25 +60,6 @@ function formatDate(date) {
     return `${year}-${month}-${day}`;
 }
 
-// 서버의 응답에 따라 일기 내용을 페이지에 추가하는 함수
-function appendDiaryContent(result) {
-    let str = `
-        <div class="header-space">
-            <div class="header-content">
-                <span class="date">${formatDate(new Date(result.created_at))}</span>
-            </div>
-        </div>
-        <div class="image-container">
-            <img src="../png/diary_ex.jpeg" alt="Diary Entry">
-        </div>
-        <div class="text-container">
-            <div class="text-box">${result.content}</div>
-        </div>
-    `;
-    // 결과를 적절한 요소에 추가 (예: '#diary-container' 요소에 추가)
-    $('#diary-container').append(str);
-}
-
 //
 // document.addEventListener('DOMContentLoaded', function() {
 //     var finalSaveCheck = document.getElementById("final-save-check");
@@ -95,6 +77,8 @@ function appendDiaryContent(result) {
 // var chatContainer = document.querySelector('.diaryEntry');
 // chatContainer.scrollTop = chatContainer.scrollHeight;
 
+
+// 아래 코드를 챗봇 스크롤이 되게끔 이식해보기
 var chatContainer = document.querySelector('.diaryEntry');
 if (chatContainer) {
     chatContainer.scrollTop = chatContainer.scrollHeight;

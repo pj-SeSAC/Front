@@ -77,12 +77,14 @@ function choiceDate(newDIV) {
     window.location.href = `diary_See.html?date=${dayStr}`; // 날짜를 쿼리 파라미터로 전달
     updateDateDisplay(newDIV.innerText); // 날짜 업데이트
 }
-function updateDateDisplay(day) { //gpt에서 알려준 날짜 표시
-    let year = document.getElementById("calYear").innerText;
-    let month = document.getElementById("calMonth").innerText;
-    let formattedDate = `${year}년 ${month}월 ${day}일`;
-    document.querySelector(".date").innerText = formattedDate;
-}
+
+//여기가 
+// function updateDateDisplay(day) { //gpt에서 알려준 날짜 표시
+//     let year = document.getElementById("calYear").innerText;
+//     let month = document.getElementById("calMonth").innerText;
+//     let formattedDate = `${year}년 ${month}월 ${day}일`;
+//     document.querySelector(".date").innerText = formattedDate;
+// }
 
 // 이전달 버튼 클릭
 function prevCalendar() {
@@ -106,39 +108,3 @@ function leftPad(value) {
 }
 
 
-// 여기부터 보기 캘린더 날짜
-// function fetchDiaryDates(month) { 
-//     $.ajax({
-//         type: 'GET',
-//         url: `http://127.0.0.1:8000/diaries/month/${month}`, // 날짜 데이터 요청 API
-//         success: function(response) {
-//             highlightDates(response);
-//         },
-//         error: function(error) {
-//             console.error('Error fetching dates:', error);
-//         }
-//     });
-// }
-
-// function highlightDates(datesWithData) {
-//     datesWithData.forEach(date => {
-//         // 날짜에 해당하는 캘린더 요소 찾기
-//         let dateElement = document.querySelector(`[data-date="${date}"]`);
-//         if (dateElement) {
-//             // 특정 스타일 적용
-//             dateElement.classList.add('highlight');
-//         }
-//     });
-// }
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     let currentMonth = getCurrentMonth(); // 현재 달을 'YYYY-MM' 형식으로 가져옴
-//     fetchDiaryDates(currentMonth);
-// });
-
-// function getCurrentMonth() {
-//     let today = new Date();
-//     let year = today.getFullYear();
-//     let month = String(today.getMonth() + 1).padStart(2, '0');
-//     return `${year}-${month}`;
-// }

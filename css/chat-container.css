@@ -1,5 +1,6 @@
 .chat-container {
-    height: calc(100vh - 84px - 58px);
+    /* height: calc(100vh - 84px - 58px); */
+    height: 550px;
     overflow-y: auto; /* 스크롤 가능하도록 설정 */
     background: #f9f9f9; /* 채팅 배경색, 카카오톡 스타일에 맞춰 조정 가능 */
     padding: 8px; /* 내부 패딩 */
@@ -20,7 +21,7 @@
     max-width: 80%; /* 메시지 최대 너비 */
     word-wrap: break-word; /* 긴 텍스트 처리 */
     /* 발신자에 따라 정렬을 다르게 할 수 있습니다 */
-    min-width: 20%; /* 최소 너비 설정 */
+    min-width: 1%; /* 최소 너비 설정 */
     display: inline-block; /* 요소의 너비가 내용에 맞게 조절되도록 함 */
     width: auto; /* 너비를 자동으로 설정 */
 }
@@ -36,8 +37,8 @@
     /* 발신자에 따라 정렬을 다르게 할 수 있습니다 */
     justify-content: flex-end;
     margin-left: auto;
-    /* text-align: right; */
-    min-width: 20%; /* 최소 너비 설정 */
+    text-align: right;
+    min-width: 1%; /* 최소 너비 설정 */
     display: inline-block; /* 요소의 너비가 내용에 맞게 조절되도록 함 */
     width: auto; /* 너비를 자동으로 설정 */
     align-self: flex-end; /* 우측 정렬 */
