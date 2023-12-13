@@ -4,7 +4,7 @@
     border: none;
     overflow: auto;
 }
-.frame-a {
+.header {
     display: inline-flex;
     padding: 6px 96px 6px 6px;
     align-items: center;
@@ -15,7 +15,7 @@
 }
 
 /* 빈 공간 */
-.empty-space {
+.header-space {
     display: inline-flex;
     padding: 6px 6px 6px 6px;
     align-items: center;
@@ -23,7 +23,7 @@
     background: #FFF;
 }
 
-.text-content {
+.header-content {
     display: flex;
     width: 168px;
     height: 20px;
