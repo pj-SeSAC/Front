@@ -7,6 +7,7 @@ function ChatSend() {
     };
     $('.chat-container').append('<div class="message-given">' + chatbotSub.message + '</div>');
     $('.ChatInput').val('');
+    scrollToBottom();
 
     function scrollToBottom() {
     var chatContainer = $('.chat-container');
