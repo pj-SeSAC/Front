@@ -5,9 +5,11 @@ function ChatSend() {
     let chatbotSub = {
         "message": $('.ChatInput').val()
     };
-    $('.chat-container').append('<div class="message-given">' + chatbotSub.message + '</div>');
-    $('.ChatInput').val('');
-    scrollToBottom();
+    if (chatbotSub.message.trim() !== '') { // 메시지가 비어있지 않은 경우에만 처리
+        $('.chat-container').append('<div class="message-given">' + chatbotSub.message + '</div>');
+        $('.ChatInput').val('');
+        scrollToBottom();
+    }
 
     function scrollToBottom() {
     var chatContainer = $('.chat-container');
@@ -36,6 +38,54 @@ function ChatSend() {
     }
 
 };
+
+$(document).ready(function() {
+    // chat-container에 이벤트 위임을 설정합니다.
+    $('.chat-container').on('click', '.choice-box', function() {
+        let buttonText = $(this).text();
+        let responseText = "";
+
+        if (buttonText === "ABOUT ME") {
+            responseText = "여기에 'ABOUT ME'에 대한 응답 텍스트를 입력하세요.";
+        } else if (buttonText === "HOW TO") {
+            responseText = "여기에 'HOW TO'에 대한 응답 텍스트를 입력하세요.";
+        } else if (buttonText === "REMEMBER") {
+            responseText = "여기에 'REMEMBER'에 대한 응답 텍스트를 입력하세요.";
+        }
+
+        // 응답과 추가 메시지를 추가합니다.
+        $('.chat-container').append('<div class="message-received">' + responseText + '</div>');
+        $('.chat-container').append('<div class="message-received">궁금하신 사항이 있으면 말해주세요.</div>');
+        
+
+        displayChoiceButtons();
+
+        scrollToBottom();
+        // 버튼을 다시 표시합니다.
+        
+        $('.ChatInput').keypress(function(e) {
+            if (e.which == 13) {
+                ChatSend();
+                e.preventDefault();
+            }
+        });
+        
+    });
+});
+
+function displayChoiceButtons() {
+    let choiceButtonsHtml = '<div class="choice-message">' +
+                                '<div class="choice-box">ABOUT ME</div>' +
+                                '<div class="choice-box">HOW TO</div>' +
+                                '<div class="choice-box">REMEMBER</div>' +
+                            '</div><br>';
+    $('.chat-container').append(choiceButtonsHtml);
+}
+
+function scrollToBottom() {
+    var chatContainer = $('.chat-container');
+    chatContainer.scrollTop(chatContainer.prop("scrollHeight"));
+}
 
 // // 채팅창 form(박스), submit 이벤트 감지를 위해 변수 선언
 // let chatForm = document.querySelector('.chatbot');

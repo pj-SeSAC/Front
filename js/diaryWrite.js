@@ -19,7 +19,7 @@ function write() {
     let created_at = new Date(); // 현재 날짜 및 시간
     let summary = "일기 요약"; // 사용자가 입력한 일기 요약 또는 자동 생성된 요약
     let diaryDate = formatDate(created_at); // 현재 날짜를 'YYYY-MM-DD' 형식으로 변환
-    let image_url = image_url;
+    
     // 일기 객체 생성
     let diary = {
         "diary_id": 12345678, // 임시 일기 ID
@@ -27,8 +27,8 @@ function write() {
         "content": content,
         "created_at": created_at,
         "summary": summary,
-        "diary_date": diaryDate,
-        "image_url" : image_url 
+        "diary_date": diaryDate
+        
     };
 
     // 전송
@@ -42,7 +42,6 @@ function write() {
             // 성공 시 처리
             console.log(result);
             localStorage.removeItem('tempDiary');
-            appendDiaryContent(result);
             window.location.href="main.html";
         },
         error: function (result, status, error) {
