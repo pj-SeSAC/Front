@@ -28,12 +28,22 @@
         <a class="start-link" href="main.html">시작하기</a>
         <h4>이미 계정이 있으신가요?<a href="로그인하세요" class="login">로그인하세요</a></h3>
             <!-- 여기에 html의 모든 요소 추가 -->
-       
-    
-          
-          <div class="docbar"><img src="../png/docbar.png" class="docbar"></div>
-      </div>
 
+
+
+            <div class="docbar"><img src="../png/docbar.png" class="docbar"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var ramyImage = document.querySelector('.ramy-image');
+          ramyImage.addEventListener('click', function() {
+            // 애니메이션 클래스를 잠시 제거합니다.
+            this.classList.remove('ramy-bounce');
+            // 브라우저가 클래스 변경을 감지할 수 있도록 짧은 지연 후 다시 추가합니다.
+            setTimeout(() => this.classList.add('ramy-bounce'), 50); // 50ms 지연
+          });
+        });
+      </script>
 </body>
 
 </html>

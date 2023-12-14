@@ -1,12 +1,37 @@
-window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드되면 buildCalendar 실행
+window.onload = function () { 
+    // isExist();
+    buildCalendar(); 
+}    // 웹 페이지가 로드되면 buildCalendar 실행
 // localStorage.setItem("temp", "temp");
 console.log();
 
 
-
+const set = new Set(); // 중복값 제거 -> 조회가 빠름
 let nowMonth = new Date();  // 현재 달을 페이지를 로드한 날의 달로 초기화
 let today = new Date();     // 페이지를 로드한 날짜를 저장
 today.setHours(0, 0, 0, 0);    // 비교 편의를 위해 today의 시간을 초기화
+
+//일기 데이터 유무 받는 함수
+function isExist(){
+    $.ajax({
+        type: 'POST',
+        url: 'http://127.0.0.1:8000/diaries/', // 서버 주소
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify(diary),
+        success: function (result) {
+            // 성공 시 처리
+            console.log(result);
+            $.each(result, function (i) {
+               set.add(result);
+            })
+        },
+        error: function (result, status, error) {
+            // 오류 시 처리
+            console.log(error);
+        }
+    });
+}
 
 // 달력 생성: 해당 달에 맞춰 테이블을 만들고, 날짜를 채워 넣습니다.
 function buildCalendar() {
@@ -31,7 +56,7 @@ function buildCalendar() {
         // console.log(nowDay);
         let nowColumn = nowRow.insertCell();        // 새 열을 추가하고
 
-        let newDIV = document.createElement("p");
+        
         //해당 날짜에 일기가 있다면클래스 추가 -> 해당 클래스 css 먹이기
 
         // if(arr[nowDay-1] == 1) {
@@ -56,6 +81,13 @@ function buildCalendar() {
         } else if (nowDay.getFullYear() == today.getFullYear() && nowDay.getMonth() == today.getMonth() && nowDay.getDate() == today.getDate()) {
             newDIV.className = "today";    // 오늘 날짜 스타일
             newDIV.onclick = function () { choiceDate(this); } // 오늘 날짜에 클릭 이벤트 추가
+        }
+
+        ///////////////////////////확인해야하는 부분//////////////////////////////////////////////
+        let check = document.getElementById("calYear").innerText + "-" +document.getElementById("calMonth").innerText + "-"+ nowDay.getDate();
+        let newDIV = document.createElement("p");
+        if(set.has(check)){
+            document.querySelector('.pastDay').id = 'existDiary';
         }
     }
 }
@@ -106,3 +138,5 @@ function leftPad(value) {
     }
     return value;
 }
+
+

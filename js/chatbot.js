@@ -1,6 +1,13 @@
 // 작성 버튼 눌렀을 떄
 $('.ButtonSend').click(ChatSend);
 
+$('.ChatInput').keypress(function(e) {
+    if (e.which == 13) {
+        ChatSend();
+        e.preventDefault();
+    }
+});
+
 function ChatSend() {
     let chatbotSub = {
         "message": $('.ChatInput').val()
@@ -63,12 +70,7 @@ $(document).ready(function() {
         scrollToBottom();
         // 버튼을 다시 표시합니다.
         
-        $('.ChatInput').keypress(function(e) {
-            if (e.which == 13) {
-                ChatSend();
-                e.preventDefault();
-            }
-        });
+        
         
     });
 });
