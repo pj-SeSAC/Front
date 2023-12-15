@@ -1,6 +1,6 @@
 // 작성 버튼 눌렀을 떄
 $('.ButtonSend').click(ChatSend);
-
+// 엔터치면 전송 
 $('.ChatInput').keypress(function(e) {
     if (e.which == 13) {
         ChatSend();
@@ -80,7 +80,7 @@ function displayChoiceButtons() {
                                 '<div class="choice-box">ABOUT ME</div>' +
                                 '<div class="choice-box">HOW TO</div>' +
                                 '<div class="choice-box">REMEMBER</div>' +
-                            '</div><br>';
+                            '</div><br>'; 
     $('.chat-container').append(choiceButtonsHtml);
 }
 
