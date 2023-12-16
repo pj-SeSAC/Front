@@ -22,7 +22,7 @@ function write() {
     
     // 일기 객체 생성
     let diary = {
-        "diary_id": 12345678, // 임시 일기 ID
+        "diary_id": diary_id, // 임시 일기 ID
         "user_id": userId,
         "content": content,
         "created_at": created_at,

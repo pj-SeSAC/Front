@@ -113,7 +113,7 @@
     /* 각 폴더 사이의 간격 */
     justify-content: center;
     /* 수평 가운데 정렬 */
-    align-items: center;
+    align-items: left;
     /* 수직 가운데 정렬 */
 }
 
