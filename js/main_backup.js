@@ -15,16 +15,16 @@ today.setHours(0, 0, 0, 0);    // 비교 편의를 위해 today의 시간을 초
 function isExist(){
     $.ajax({
         type: 'POST',
-        url: 'http://127.0.0.1:8000/diaries/', // 서버 주소
+        url: 'http://127.0.0.1:8000/diaries/', // 서버 주소가 필요함.
         dataType: 'json',
         contentType: 'application/json',
         data: JSON.stringify(diary),
         success: function (result) {
             // 성공 시 처리
             console.log(result);
-            $.each(result, function (i) {
-               set.add(result);
-            })
+            $.each(result, function (i, entry) {
+                set.add(entry.date); // 서버로부터 받은 날짜를 set에 추가
+            });
         },
         error: function (result, status, error) {
             // 오류 시 처리
@@ -52,7 +52,13 @@ function buildCalendar() {
         let nowColumn = nowRow.insertCell();        // 열 추가
     }
 
-    for (let nowDay = firstDate; nowDay <= lastDate; nowDay.setDate(nowDay.getDate() + 1)) {
+    for (let nowDay = firstDate; nowDay <= lastDate; nowDay.setDate(nowDay.getDate() + 1)) { //1215 이 아래부터 수정해보자
+        let newDIV = document.createElement("p"); // 먼저 newDIV 생성
+        let checkDate = nowMonth.getFullYear() + "-" + leftPad(nowMonth.getMonth() + 1) + "-" + leftPad(nowDay.getDate());
+
+        if (set.has(checkDate)) {
+            newDIV.classList.add("existDiary"); // 일기가 있는 경우 클래스 추가
+        }
         // console.log(nowDay);
         let nowColumn = nowRow.insertCell();        // 새 열을 추가하고
 
@@ -84,11 +90,11 @@ function buildCalendar() {
         }
 
         ///////////////////////////확인해야하는 부분//////////////////////////////////////////////
-        let check = document.getElementById("calYear").innerText + "-" +document.getElementById("calMonth").innerText + "-"+ nowDay.getDate();
-        let newDIV = document.createElement("p");
-        if(set.has(check)){
-            document.querySelector('.pastDay').id = 'existDiary';
-        }
+        // let check = document.getElementById("calYear").innerText + "-" +document.getElementById("calMonth").innerText + "-"+ nowDay.getDate();
+        // let newDIV = document.createElement("p");
+        // if(set.has(check)){
+        //     document.querySelector('.pastDay').id = 'existDiary';
+        // }
     }
 }
 
