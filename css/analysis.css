@@ -3,6 +3,7 @@
     background-color: #fff;
     border: none;
     overflow: auto;
+    height : 715px;
 }
 .header {
     display: inline-flex;
@@ -181,6 +182,7 @@
     overflow: hidden;
     /* 추가된 부분: 이미지가 border-radius를 따르도록 함 */
 }
+
 
 .image-container img {
     width: 100%;
