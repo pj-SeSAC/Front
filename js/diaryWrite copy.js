@@ -21,7 +21,7 @@ async function write() {
     let created_at = new Date(); // 현재 날짜 및 시간
     // let summary = $(".diaryEntry").val(); // 사용자가 입력한 일기 요약 또는 자동 생성된 요약
     let diaryDate = formatDate(created_at); // 현재 날짜를 'YYYY-MM-DD' 형식으로 변환
-    let image_url = "default_value"; //임시설정
+    // let image_url = "default_value"; //임시설정
     let behavior_keyword = "default_value";
     let emotion_keyword = "default_value";
     // let diary_id = 12345678;
@@ -37,7 +37,7 @@ async function write() {
         "created_at": created_at,
         // "summary": summary,
         "diary_date": diaryDate,
-        "image_url": image_url,
+        // "image_url": image_url,
         "behavior_keyword": behavior_keyword,
         "emotion_keyword": emotion_keyword
     };
@@ -82,12 +82,12 @@ async function write() {
 
         // 감정 키워드 추출
         await extractEmotionKeyword(diary);
-
+            
         // 달리 이미지 추출
-        await extractDalle(diary);
+        // await extractDalle(diary);
 
         // 성공 시 처리 (예: 메인 페이지로 리디렉션)
-        window.location.href = "main.html";
+        //window.location.href = "main.html";
     } catch (error) {
         // 오류 시 처리 (예: 오류 메시지 표시)
         console.error("An error occurred:", error);
@@ -140,7 +140,7 @@ function sendVectorDB(diary) {
 function createSummary(diary) {
     return $.ajax({
         type: 'POST',
-        url: 'http://127.0.0.1:8000/diaries/summary/', // 서버 주소
+        url: 'http://127.0.0.1:8000/diaries/summary/12345678', // 서버 주소
         dataType: 'json',
         contentType: 'application/json',
         data: JSON.stringify(diary),
@@ -200,26 +200,28 @@ function extractEmotionKeyword(diary) {
     // 감정 키워드 추출을 위한 AJAX 요청 구현
 }
 
-function extractDalle(diary) {
-    return $.ajax({
-        type: 'POST',
-        url: 'http://127.0.0.1:8000/dalle-image/', // 서버 주소
-        dataType: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify(diary),
-        success: function (result) {
-            // 성공 시 처리
-            console.log(result);
-            localStorage.removeItem('tempDiary');
-            window.location.href="main.html";
-        },
-        error: function (result, status, error) {
-            // 오류 시 처리
-            console.log(error);
-        }
-    });
-    // 감정 키워드 추출을 위한 AJAX 요청 구현
-}
+// function extractDalle(diary) {
+//     return $.ajax({
+//         type: 'POST',
+//         url: 'http://127.0.0.1:8000/dalle-image/12345678', // 서버 주소
+//         dataType: 'json',
+//         contentType: 'application/json',
+//         data: JSON.stringify(diary),
+        
+//         success: function (result) {
+//             console.log(data)
+//             // 성공 시 처리
+//             console.log(result);
+//             localStorage.removeItem('tempDiary');
+//             // window.location.href="main.html";
+//         },
+//         error: function (result, status, error) {
+//             // 오류 시 처리
+//             console.log(error);
+//         }
+//     });
+//     // 감정 키워드 추출을 위한 AJAX 요청 구현
+// }
 
 
 // 날짜 형식을 'YYYY-MM-DD'로 변환하는 함수
