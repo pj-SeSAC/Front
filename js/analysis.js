@@ -51,6 +51,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     const awsConfig = await loadAwsConfig(); // AWS 설정 로드
     const date = localStorage.getItem('selectedDate'); // 로컬 스토리지에서 날짜 가져오기
     const formattedDate = formatDateString(date); // 날짜 형식 변환
+    var selectedTab = localStorage.getItem('selectedTab');
+            if (selectedTab) {
+                var tab = document.querySelector(`#${selectedTab}-tab`);
+                if (tab) {
+                    tab.click(); // 해당 탭 클릭 시뮬레이션
+                }
+            }
 
     // 초기 이미지 설정 (기본 감정 분석 이미지)
     const imageUrl = generateS3ImageUrl(awsConfig.bucketName, awsConfig.region, 'PC', formattedDate);
@@ -60,7 +67,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     var tabButtons = document.querySelectorAll('.nav-item .nav-link');
     tabButtons.forEach(function(btn) {
-        btn.addEventListener('click', async function() {
+        btn.addEventListener('click', async function() { 
+
             var date = localStorage.getItem('selectedDate'); // 로컬 스토리지에서 날짜 가져오기
             var formattedDate = formatDateString(date); // 날짜 형식 변환
             var analysisType = this.getAttribute('data-type'); // 버튼의 data-type 속성 값
