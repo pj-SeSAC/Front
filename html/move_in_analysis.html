@@ -289,14 +289,16 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
-    <script src="../js/analysis.js"></script>
+    crossorigin="anonymous">
+  </script>
+  <script src="../js/analysis.js">
+    </script>
     <script>
-      // JavaScript: 클릭된 폴더의 날짜와 탭 정보를 저장하고 analysis.html로 이동
+    // JavaScript: 클릭된 폴더의 날짜와 탭 정보를 저장하고 analysis.html로 이동
       function openAnalysis(date, tab) {
-          localStorage.setItem('selectedDate', date);
-          localStorage.setItem('selectedTab', tab); // 탭 정보 저장
-          window.location.href = 'analysis.html';
+        localStorage.setItem('selectedDate', date);
+        localStorage.setItem('selectedTab', tab); // 탭 정보 저장
+        window.location.href = 'analysis.html';
       }
   </script>
 </body>
