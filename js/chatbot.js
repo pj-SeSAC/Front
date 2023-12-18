@@ -58,7 +58,8 @@ $(document).ready(function() {
             responseText = (
             '1. 나의 장점 3가지 알려줘.\n \
             2. 내가 성격상 보완해야 할 점을 3가지 알려줘.\n \
-            3. 나의 가치관에 대해 알려줘.\n4. 내가 최근에 느낀 감정 3가지 알려줘.'
+            3. 나에게 가장 큰 영감을 주는 것 한가지와 이유를 알려줘. \n\
+            4. 내가 최근에 느낀 감정 3가지 알려줘.'
             ).replace(/\n/g, '<br>');
         } else if (buttonText === "HOW TO") {
             responseText = (
@@ -68,9 +69,8 @@ $(document).ready(function() {
             ).replace(/\n/g, '<br>');
         } else if (buttonText === "REMEMBER") {
             responseText = (
-            '1. 내가 행복해질 수 있는 3가지 방법을 알려줘.\n \
-            2. 내가 2023년에 가장 행복했던 날과 이유를 알려줘.\n\
-            3. 나는 일요일에 주로 무엇을 하는지 3개만 알려줘.\n  \
+            '1. 내가 2023년에 가장 행복했던 날과 이유를 알려줘.\n\
+            2. 나는 일요일에 주로 무엇을 하는지 3개만 알려줘.\n\
             ✩ 이외에도 REMEMBER와 관련한 다양한 질문을 자유롭게 물어보세요!'
             ).replace(/\n/g, '<br>');
         }
